@@ -10,7 +10,9 @@
   "scripts": {
     "clean": "rimraf ./build",
     "roll": "rollup -c",
-    "build": "yarn clean && yarn roll",
+    "def": "tsc",
+    "build": "yarn clean && yarn roll ",
+    "deploy": "yarn clean && yarn roll && yarn def && yarn test",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

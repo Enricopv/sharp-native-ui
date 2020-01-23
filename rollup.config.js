@@ -26,7 +26,9 @@ export default {
     resolve(),
     typescript({
       // rollupCommonJSResolveHack: true,
-      exclude: ["**/__tests__/**", "__tests__"]
+      lib: ["es5", "es6", "dom"],
+      target: "es5",
+      exclude: ["**/__tests__/**", "/__tests__/"]
       // clean: true
     }),
     commonjs({
