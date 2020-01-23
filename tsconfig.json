@@ -16,7 +16,11 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "react-native": ["react-native-web"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "build"]

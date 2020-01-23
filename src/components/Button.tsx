@@ -3,7 +3,7 @@ import { Text, GestureResponderEvent } from "react-native"
 
 export const Button = (props: {
   children: React.ReactNode
-  onPress: (event: GestureResponderEvent) => void
+  onPress?: (event: GestureResponderEvent) => void
 }) => {
   return (
     <Text
