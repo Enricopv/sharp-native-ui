@@ -16,6 +16,13 @@ module.exports = {
           "react-native": "react-native-web"
         }
       }
+    ],
+    [
+      "babel-plugin-styled-components",
+      {
+        ssr: true,
+        displayName: false
+      }
     ]
   ]
 }

@@ -2,6 +2,7 @@ import typescript from "@rollup/plugin-typescript"
 import commonjs from "rollup-plugin-commonjs"
 import external from "rollup-plugin-peer-deps-external"
 import resolve from "rollup-plugin-node-resolve"
+import json from "@rollup/plugin-json"
 
 import pkg from "./package.json"
 
@@ -23,6 +24,7 @@ export default {
   ],
   plugins: [
     external(),
+    json(),
     resolve(),
     typescript({
       // rollupCommonJSResolveHack: true,
@@ -40,7 +42,12 @@ export default {
           "PropTypes",
           "createElement"
         ],
-        "node_modules/react-dom/index.js": ["render"]
+        "node_modules/react-dom/index.js": ["render"],
+        "node_modules/react-is/index.js": [
+          "isElement",
+          "isValidElementType",
+          "ForwardRef"
+        ]
       }
     })
   ]
