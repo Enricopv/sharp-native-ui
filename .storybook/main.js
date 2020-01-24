@@ -16,7 +16,21 @@ module.exports = {
     return {
       ...config,
       resolve: {
-        extensions: [...config.resolve.extensions, ".ts", ".tsx", ".js", ".jsx"]
+        extensions: [
+          ...config.resolve.extensions,
+          ".ts",
+          ".tsx",
+          ".js",
+          ".jsx",
+          ".web.ts",
+          ".web.tsx",
+          ".web.js",
+          ".web.jsx"
+        ],
+        alias: {
+          ...config.resolve.alias,
+          "react-native$": "react-native-web"
+        }
       },
       module: {
         ...config.module,
@@ -24,19 +38,16 @@ module.exports = {
           {
             test: /\.(js|jsx|mjs|ts|tsx)$/,
             exclude: [/node_modules/],
+
             loader: require.resolve("babel-loader"),
             options: {
               babelrc: false,
-              // presets: ["react-app"],
               plugins: [
                 [
                   "module-resolver",
                   {
                     alias: {
                       "react-native": "./node_modules/react-native-web",
-
-                      "styled-components/native":
-                        "./node_modules/styled-components",
                       "@storybook/react-native":
                         "./node_modules/@storybook/react"
                     }
@@ -46,6 +57,7 @@ module.exports = {
               cacheDirectory: true
             }
           },
+
           {
             test: /\.(gif|jpe?g|png|svg)$/,
             use: {

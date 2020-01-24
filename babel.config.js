@@ -7,23 +7,18 @@ module.exports = {
       }
     ],
     "@babel/preset-react"
+    // "module:metro-react-native-babel-preset"
   ],
   plugins: [
     [
       "module-resolver",
       {
         alias: {
-          "react-native": "react-native-web",
-          "styled-components/native": "styled-components"
+          "react-native": "react-native-web"
+          // "styled-components/native": "styled-components"
         }
       }
     ],
-    [
-      "babel-plugin-styled-components",
-      {
-        ssr: true,
-        displayName: false
-      }
-    ]
+    ["babel-plugin-styled-components"]
   ]
 }
