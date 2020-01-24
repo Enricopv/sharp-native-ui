@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions"
 import React from "react"
 import { Button } from "../src/components/Button"
-import { OtherButton } from "../src/components/Other"
+import { OtherButton } from "../src/components/OtherButton"
 import { PhoneView } from "./helpers/Views"
 
 // addDecorator(storyFn => <PhoneView>{storyFn()}</PhoneView>)
