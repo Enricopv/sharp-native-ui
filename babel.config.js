@@ -13,7 +13,8 @@ module.exports = {
       "module-resolver",
       {
         alias: {
-          "react-native": "react-native-web"
+          "react-native": "react-native-web",
+          "styled-components/native": "styled-components"
         }
       }
     ],
