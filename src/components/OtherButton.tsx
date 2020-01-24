@@ -7,7 +7,7 @@ const StyledTest = RNstyled(Text)`
   color: blue;
 `
 const StyledBest = RNstyled.Text`
-color: blue;
+color: orange;
 `
 
 const StyledDiv = styled.div`
