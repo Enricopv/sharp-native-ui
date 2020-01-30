@@ -1,5 +1,12 @@
 import * as React from "react"
-import { View } from "react-native"
+import { View, TextInput } from "react-native"
+import {
+  Divider,
+  TextAreaField,
+  TextField,
+  TextEmailField,
+  TextPasswordField
+} from "~components"
 import { PhoneView } from "./helpers/Views"
 
 export default {
@@ -14,8 +21,21 @@ export default {
   // component: Banana,
 }
 
-import { TextField } from "../src/components/TextField/TextField"
-
 export const AllInputs = () => {
-  return <TextField label="Text Field" />
+  return (
+    <>
+      <TextField label="Text Field" backgroundColor="red" />
+      <Divider />
+      <TextAreaField
+        label="Text Area Field"
+        nativeTextInputProps={{ value: "hello" }}
+      />
+      <Divider />
+      <TextEmailField label="Text Email Field" backgroundColor="dodgerblue" />
+      <Divider />
+      <TextPasswordField label="Text Password Field" />
+      <Divider />
+      <TextInput />
+    </>
+  )
 }
