@@ -1,33 +1,47 @@
 import * as React from "react"
-import { Text, TextProps } from "react-native"
+import { Text, TextProps, TextStyle } from "react-native"
 
-export type TextographyVariants = "normal" | "small" | "large"
+export type TextographyVariants = "normal" | "small" | "title"
 
-export const largeFontSize = 18.75
+export const titleFontSize = 18.75
 export const normalFontSize = 15
 export const smallFontSize = 12.5
 
 export interface TextographyProps extends TextProps {
   children?: string
   variant?: TextographyVariants
+  style?: TextStyle
 }
 
 export const Textography = (props: TextographyProps) => {
-  const { variant, ...rest } = props
-  let fontSize = normalFontSize
+  const { variant, style, ...rest } = props
+  let tStyle: TextStyle
   switch (props.variant) {
     case "small":
-      fontSize = smallFontSize
+      tStyle = {
+        fontSize: smallFontSize
+      }
       break
     case "normal":
-      fontSize = normalFontSize
+      tStyle = {
+        fontSize: normalFontSize
+      }
       break
-    case "large":
-      fontSize = largeFontSize
+    case "title":
+      tStyle = {
+        fontSize: titleFontSize,
+        fontWeight: "600"
+      }
+      break
+    default:
+      tStyle = {
+        fontSize: smallFontSize
+      }
       break
   }
+
   return (
-    <Text {...rest} style={{ fontSize }}>
+    <Text {...rest} style={{ ...tStyle, ...style }}>
       {props.children}
     </Text>
   )

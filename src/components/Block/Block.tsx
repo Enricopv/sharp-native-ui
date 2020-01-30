@@ -1,7 +1,5 @@
-import { action } from "@storybook/addon-actions"
 import * as React from "react"
-import { Text, View } from "react-native"
-import { smallFontSize } from "../../"
+import { View } from "react-native"
 
 export type dividerSpacingTypes = "normal" | "small" | "large"
 export const dividerSpacingLarge = 24
@@ -19,6 +17,9 @@ export const Divider = ({
   }
   if (spacing === "small") {
     height = dividerSpacingSmall
+  }
+  if (spacing === "large") {
+    height = dividerSpacingLarge
   }
 
   return <View style={{ height }} />
@@ -42,11 +43,6 @@ export const Block = (props: { children?: React.ReactNode }) => (
       shadowOpacity: 0.15
     }}
   >
-    <Text
-      onPress={action("clicked")}
-      style={{ color: "white", fontSize: smallFontSize }}
-    >
-      {props.children}
-    </Text>
+    {props.children}
   </View>
 )
