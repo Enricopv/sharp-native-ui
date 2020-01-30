@@ -23,6 +23,8 @@ export const variants = () => {
       <Textography variant="normal">Normal Font Size</Textography>
       <Divider />
       <Textography variant="title">Title Font Size</Textography>
+      <Divider />
+      <Textography variant="heading">Heading Font Size</Textography>
     </View>
   )
 }

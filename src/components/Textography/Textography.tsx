@@ -1,8 +1,10 @@
 import * as React from "react"
 import { Text, TextProps, TextStyle } from "react-native"
+import { textColorDark } from "../baseTheme"
 
-export type TextographyVariants = "normal" | "small" | "title"
+export type TextographyVariants = "normal" | "small" | "title" | "heading"
 
+export const headingFontSize = 30
 export const titleFontSize = 18.75
 export const normalFontSize = 15
 export const smallFontSize = 12.5
@@ -19,12 +21,14 @@ export const Textography = (props: TextographyProps) => {
   switch (props.variant) {
     case "small":
       tStyle = {
-        fontSize: smallFontSize
+        fontSize: smallFontSize,
+        fontWeight: "400"
       }
       break
     case "normal":
       tStyle = {
-        fontSize: normalFontSize
+        fontSize: normalFontSize,
+        fontWeight: "500"
       }
       break
     case "title":
@@ -33,15 +37,23 @@ export const Textography = (props: TextographyProps) => {
         fontWeight: "600"
       }
       break
+
+    case "heading":
+      tStyle = {
+        fontSize: headingFontSize,
+        fontWeight: "600"
+      }
+      break
     default:
       tStyle = {
-        fontSize: smallFontSize
+        fontSize: normalFontSize,
+        fontWeight: "500"
       }
       break
   }
 
   return (
-    <Text {...rest} style={{ ...tStyle, ...style }}>
+    <Text {...rest} style={{ color: textColorDark, ...tStyle, ...style }}>
       {props.children}
     </Text>
   )
