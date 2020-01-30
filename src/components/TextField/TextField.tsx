@@ -1,59 +1,84 @@
 import * as React from "react"
-import { TextInput, View, Text } from "react-native"
+import { TextInputProps, View } from "react-native"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components/native"
-import { Divider, Textography } from "~components"
+import { Textography } from "~components"
+import { textColorDark } from "../baseTheme"
+import { normalFontSize } from "../Textography/Textography"
 
-export const Test = styled.Text``
+// animated needs to use a styled component in order to apply it's anims
+const StyledText = styled.Text``
+const AnimatedText = animated(StyledText)
 
-const AnimatedT = animated(Test)
+const StyledTextInput = styled.TextInput``
+const AnimatedTextInput = animated(StyledTextInput)
 
-export const Label = () => {
-  return <Text style={{ fontSize: 10 }}>First Name</Text>
-}
-
-// const AnimatedText = animated(Label)
-
-/**
-    // :: TODO
-    // :: - I think the whole text field should light up or highlight.
-    // ::   Something that would feel tactile to mobile users
-**/
-export const TextField = () => (
-  <View style={{}}>
-    <Label />
-    <TextInput
-      // value="Enrico Valbuena"
+export const TextInputTown = (props: TextInputProps) => {
+  const springProps = useSpring({
+    opacity: 1,
+    backgroundColor: "#F1F8FF",
+    from: { opacity: 0, backgroundColor: "white" }
+  })
+  return (
+    <AnimatedTextInput
+      {...props}
       style={{
+        borderBottomColor: textColorDark,
         borderBottomWidth: 0.5,
-        borderColor: "black",
-        paddingVertical: 2
+        fontSize: normalFontSize,
+        paddingVertical: 2,
+        ...springProps
       }}
     />
-    <Divider />
-    <OtherField />
-  </View>
-)
+  )
+}
 
-export const OtherField = () => {
-  const props = useSpring({ opacity: 0, from: { opacity: 1 } })
+// Our Animated Textfield
+export const TextField = (props: { label?: string }) => {
+  const [focused, setFocused] = React.useState(false)
+  const [value, setValue] = React.useState("")
+  const springProps = useSpring({
+    opacity: focused || value ? 1 : 0,
+    from: { opacity: 0 }
+  })
   return (
-    <View>
-      <AnimatedT style={{ fontSize: 10, ...props }}>First Name</AnimatedT>
-      <View
-        style={{
-          borderBottomColor: "black",
-          borderBottomWidth: 0.5
-        }}
-      >
-        <Textography
+    <StyledText
+      style={{
+        width: "100%",
+        display: "flex",
+        flex: 1,
+        flexDirection: "column"
+      }}
+      onPress={() => {
+        console.log("hi")
+        setFocused(true)
+      }}
+    >
+      <AnimatedText style={{ ...springProps, fontSize: 10 }}>
+        {props.label}
+      </AnimatedText>
+      {!focused && !value ? (
+        <View
           style={{
-            paddingVertical: 2
+            borderBottomColor: "black",
+            borderBottomWidth: 0.5
           }}
         >
-          First Name
-        </Textography>
-      </View>
-    </View>
+          <Textography
+            style={{
+              paddingVertical: 2
+            }}
+          >
+            {props.label}
+          </Textography>
+        </View>
+      ) : (
+        <TextInputTown
+          onBlur={() => setFocused(false)}
+          autoFocus
+          onChangeText={text => setValue(text)}
+        />
+      )}
+    </StyledText>
   )
 }

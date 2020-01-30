@@ -14,4 +14,8 @@ export default {
   // component: Banana,
 }
 
-export { TextField } from "../src/components/TextField/TextField"
+import { TextField } from "../src/components/TextField/TextField"
+
+export const AllInputs = () => {
+  return <TextField label="Text Field" />
+}
