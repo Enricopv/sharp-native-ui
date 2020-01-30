@@ -27,8 +27,7 @@ export const Textography = (props: TextographyProps) => {
       break
     case "normal":
       tStyle = {
-        fontSize: normalFontSize,
-        fontWeight: "500"
+        fontSize: normalFontSize
       }
       break
     case "title":
