@@ -6,8 +6,9 @@ import styled from "styled-components/"
 const StyledTest = RNstyled(Text)`
   color: blue;
 `
+
 const StyledBest = RNstyled.Text`
-color: orange;
+  color: orange;
 `
 
 const StyledDiv = styled.div`
