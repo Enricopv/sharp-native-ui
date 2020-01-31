@@ -22,7 +22,8 @@
     "emitDeclarationOnly": true,
     "skipLibCheck": true,
     "paths": {
-      "react-native": ["react-native-web"]
+      "react-native": ["react-native-web"],
+      "~components": ["src"]
     }
   },
   "include": ["src"],

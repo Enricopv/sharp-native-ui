@@ -49,7 +49,8 @@ module.exports = {
                     alias: {
                       "react-native": "./node_modules/react-native-web",
                       "@storybook/react-native":
-                        "./node_modules/@storybook/react"
+                        "./node_modules/@storybook/react",
+                      "~components": "./src"
                     }
                   }
                 ]
