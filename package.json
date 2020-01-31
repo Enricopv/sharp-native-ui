@@ -12,7 +12,7 @@
     "roll": "rollup -c",
     "def": "tsc",
     "build": "yarn clean && yarn roll ",
-    "deploy": "yarn clean && yarn roll && yarn def && yarn test",
+    "deploy": "yarn test && yarn clean && yarn roll && yarn def",
     "test": "jest",
     "sb": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -72,6 +72,5 @@
   },
   "files": [
     "build"
-  ],
-  "dependencies": {}
+  ]
 }
