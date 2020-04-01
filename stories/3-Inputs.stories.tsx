@@ -5,7 +5,8 @@ import {
   TextAreaField,
   TextField,
   TextEmailField,
-  TextPasswordField
+  TextPasswordField,
+  SimpleTextField
 } from "~components"
 import { PhoneView } from "./helpers/Views"
 
@@ -14,7 +15,9 @@ export default {
   decorators: [
     (storyFn: any) => (
       <PhoneView>
-        <View style={{ padding: 10 }}>{storyFn()}</View>
+        <View style={{ paddingVertical: 10, paddingHorizontal: 20 }}>
+          {storyFn()}
+        </View>
       </PhoneView>
     )
   ]
@@ -24,6 +27,9 @@ export default {
 export const AllInputs = () => {
   return (
     <>
+      <SimpleTextField label="Simple Text Field" />
+      <TextField label="Text Field" backgroundColor="red" />
+      <Divider />
       <TextField label="Text Field" backgroundColor="red" />
       <Divider />
       <TextAreaField

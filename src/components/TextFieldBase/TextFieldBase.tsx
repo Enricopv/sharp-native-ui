@@ -2,9 +2,12 @@ import * as React from "react"
 import { TextInputProps } from "react-native"
 import { animated, useSpring } from "react-spring"
 import styled from "styled-components/native"
-import { Textography } from "~components"
 import { textColorDark } from "../baseTheme"
-import { normalFontSize, smallFontSize } from "../Textography/Textography"
+import {
+  normalFontSize,
+  smallFontSize,
+  Textography
+} from "../Textography/Textography"
 
 // animated needs to use a styled component in order to apply it's anims
 const StyledText = styled.Text``

@@ -8,6 +8,7 @@ export const headingFontSize = 30
 export const titleFontSize = 18.75
 export const normalFontSize = 15
 export const smallFontSize = 12.5
+export const miniFontSize = 10
 
 export interface TextographyProps extends TextProps {
   children?: string
